@@ -1,7 +1,7 @@
 {
   "name": "React Native",
   "dashedName": "react-native",
-  "order": 1,
+  "order": 0,
   "time": "? hours",
   "template": "<body><div id='root'></div><div id='challenge-node'></div>${ source || '' }</body>",
   "required": [
@@ -13,25 +13,25 @@
     }
   ],
   "superBlock": "mobile-development",
-  "superOrder": 10,
+  "superOrder": 9,
   "challengeOrder": [
     [
-      "11111",
+      "587d824a67417b2b25124c56",
       "Hello World"
     ],
     [
-      "22222",
+      "687d824a67417b2b25124c56",
       "View and Text"
     ],
     [
-      "33333",
+      "787d824a67417b2b25124c56",
       "Props #1"
     ],
     [
-      "44444",
+      "887d824a67417b2b25124c56",
       "Props #2"
     ]
   ],
   "helpRoom": "Help",
-  "fileName": "10-mobile-development/react-native.json"
+  "fileName": "09-mobile-development/react-native.json"
 }

@@ -13,7 +13,8 @@ const superBlockCertTypeMap = {
   'data-visualization': certTypes.dataVis2018,
   'apis-and-microservices': certTypes.apisMicroservices,
   'information-security-and-quality-assurance': certTypes.infosecQa,
-  'full-stack': certTypes.fullStack
+  'full-stack': certTypes.fullStack,
+  'mobile-development': certTypes.mobileDev
 };
 
 export default superBlockCertTypeMap;

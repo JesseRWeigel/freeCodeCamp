@@ -19,7 +19,8 @@ import {
   dataVis2018Id,
   apisMicroservicesId,
   infosecQaId,
-  fullStackId
+  fullStackId,
+  mobileDevId
 } from '../utils/constantStrings.json';
 import certTypes from '../utils/certTypes.json';
 import superBlockCertTypeMap from '../utils/superBlockCertTypeMap';
@@ -93,7 +94,8 @@ function createCertTypeIds(app) {
       Challenge
     ),
     [certTypes.infosecQa]: getIdsForCert$(infosecQaId, Challenge),
-    [certTypes.fullStack]: getIdsForCert$(fullStackId, Challenge)
+    [certTypes.fullStack]: getIdsForCert$(fullStackId, Challenge),
+    [certTypes.mobileDev]: getIdsForCert$(mobileDevId, Challenge)
   };
 }
 
@@ -113,7 +115,8 @@ const certIds = {
   [certTypes.dataVis2018]: dataVis2018Id,
   [certTypes.apisMicroservices]: apisMicroservicesId,
   [certTypes.infosecQa]: infosecQaId,
-  [certTypes.fullStack]: fullStackId
+  [certTypes.fullStack]: fullStackId,
+  [certTypes.mobileDev]: mobileDevId
 };
 
 const certText = {
@@ -121,6 +124,7 @@ const certText = {
   [certTypes.backEnd]: 'Legacy Back End',
   [certTypes.dataVis]: 'Legacy Data Visualization',
   [certTypes.fullStack]: 'Full Stack',
+  [certTypes.mobileDev]: 'Mobile Development',
   [certTypes.respWebDesign]: 'Responsive Web Design',
   [certTypes.frontEndLibs]: 'Front End Libraries',
   [certTypes.jsAlgoDataStruct]: 'JavaScript Algorithms and Data Structures',
@@ -134,6 +138,7 @@ const completionHours = {
   [certTypes.backEnd]: 400,
   [certTypes.dataVis]: 400,
   [certTypes.fullStack]: 1800,
+  [certTypes.mobileDev]: 200,
   [certTypes.respWebDesign]: 300,
   [certTypes.frontEndLibs]: 300,
   [certTypes.jsAlgoDataStruct]: 300,
@@ -205,7 +210,8 @@ function getUserIsCertMap(user) {
     isFrontEndCert = false,
     isBackEndCert = false,
     isDataVisCert = false,
-    isFullStackCert = false
+    isFullStackCert = false,
+    isMobileDevCert = false
   } = user;
 
   return {
@@ -218,7 +224,8 @@ function getUserIsCertMap(user) {
     isFrontEndCert,
     isBackEndCert,
     isDataVisCert,
-    isFullStackCert
+    isFullStackCert,
+    isMobileDevCert
   };
 }
 
@@ -332,6 +339,7 @@ function createShowCert(app) {
       isFrontEndCert: true,
       isBackEndCert: true,
       isFullStackCert: true,
+      isMobileDevCert: true,
       isRespWebDesignCert: true,
       isFrontEndLibsCert: true,
       isJsAlgoDataStructCert: true,
