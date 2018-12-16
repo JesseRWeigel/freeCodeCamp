@@ -63,6 +63,14 @@ int main(void) {
     return 0;
 }
 ```
+## Address Calculation
+In C, an array is stored in row major form. Suppose an arrar int A[10] is declared. It will be stored as shown below:
+```C
+ A[0]  A[1]  A[2]  A[3]  A[4]  A[5]  A[6]  A[7]  A[8]  A[9] 
+ ```
+ Hence, address for the ith element of the array can be calculated as follows:
+ 
+ `Address of A[i] = Base Address + i*(size of data type)`
 
 Output will be  
 ```C
@@ -162,6 +170,12 @@ void string_concatenate(char [] s1, char [] s2)
 }
 ```
 
+#### Concatenate number of characters to a string: `strncat`
+`strncat` (from 'string number concatenate') concatenates a certain number of characters from the beginning of the second string to the end of first string. In this example, strncat will concatenate some characters from the second to the first string:
+```C
+strncat(char s1[], char s2[], int n);
+```
+
 #### Get length: `strlen`
 
 `strlen` (from 'string length') will return an integer value corresponding to the length of the string. In this example, an integer called `string_length` will be assigned the length of `my_string`:
@@ -192,15 +206,22 @@ if(!strcmp(first, second)){
 ```
 Notice the `!`, which is needed because this function returns 0 if they are the same. Placing the exclamation point here will make that comparison return true.
 
+***Tip*** -  If you found the `!` strange, you can also compare the result of `strcmp()` with 0, like so -
+```C
+if(strcmp(first, second) == 0){
+```
+
 #### Compare 'n' bytes: `strncmp`
 `strncmp` compares two strings for 'n' characters. The integer value it returns is 0 if they are the same, but it will also return negative if the value of the first (by adding up characters) is less than the value of the second, and positive if the first is greater than the second. Take a look at an example of how this might be used:
 ```C
 if(!strncmp(first, second, 4)){
+
     printf("These strings are the same!\n");
 } else {
     printf("These strings are not the same!\n");
 }
 ```
+
 If the first string is `wires` and the second string is `wired`, the above snippet would still print `These strings are the same!` comparing first 4 characters. 
 
 Notice the `!`, which is needed because this function returns 0 if they are the same. Placing the exclamation point here will make that comparison return true.

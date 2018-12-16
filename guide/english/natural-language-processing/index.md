@@ -11,7 +11,7 @@ title: Introduction to NLP
 * Further readings
 
 ## Motivation
-It has always been our dream to make machines understand our language. Ever since Chomsky came up with Context free grammars, linguists have wanted to come up with solutions to understand context dependent grammars. It is therefore only natural that an academic discipline has evolved around this topic.
+It has always been our dream to make machines understand our language. Ever since Chomsky came up with Context free grammars, linguists have been wanting to come up with solutions to understand context dependent grammars. It is therefore only natural that an academic discipline had to be evolved around this topic.
 
 ## Use cases
 People have used this concept in a lot of interesting applications. A few of the exciting ones include Google Translate, Siri, or Gmail auto reply suggestions. People are however working on ways to improve these predictions, and state of the art research is being done on how to make machines answer questions more reliably. 
@@ -45,7 +45,9 @@ Next task is to build a language model. Here we consider an assumption that the 
 The field of NLP is huge. If you have read this far and have implemented the above, you have certainly loved this. Go ahead and read Jurafsky's book to learn some more new concepts. Remember, it's important to implement them as well.
 
 #### Some useful online learning resources:
-
+* [Stanford's course CS224n](http://web.stanford.edu/class/cs224n/)
+* [Oxford's Course](https://www.cs.ox.ac.uk/teaching/courses/2016-2017/dl/)
+* [CMU's course](http://www.phontron.com/class/nn4nlp2018/index.html)
+* [Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing/)
 * [LSTM networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 * [Attention](https://distill.pub/2016/augmented-rnns/)
-
