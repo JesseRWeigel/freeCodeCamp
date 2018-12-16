@@ -2,7 +2,7 @@
 title: Loops of all kinds
 ---
 # Loops of all kinds in C
-Loops are what you use when you have code that you want to loop, meaning that after it runs, you might want it to loop around to the beginning and run again. There are a few of these in C.
+Loops are what you use when you have code that you want to execute more than once, meaning that after it runs, you might want it to loop around to the beginning and run again. There are a few of these in C.
 
 
 They can be categorized as:
@@ -96,6 +96,25 @@ If this were a while loop, the code within the brackets would never get run beca
 
 ## For loops
 For loops are for when we want something to run a set number of times.
+
+## Here is an example to print from A to Z
+```c
+#include <stdio.h>
+int main()
+{
+    char c;
+
+    for(c = 'A'; c <= 'Z'; ++c)
+       printf("%c ", c);
+    
+    return 0;
+}
+```
+**Output**
+```c
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+```
+
 
 ### Syntax
 ```

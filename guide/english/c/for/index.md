@@ -4,7 +4,7 @@ title: For Loop
 
 # For Loop
 
-The `for` loop executes a block of code until a specified condition is false. Use `while` loops when the number of iterations are variable, otherwise use `for` loops. A common use of `for` loops are array iterations. 
+The `for` loop executes a block of code until a specified condition is false. Use `while` loops when the number of iterations are variable, otherwise use `for` loops. A common use of `for` loops is array iterations. 
 It is also known as an 'entry-controlled loop' since the condition is checked before the next iteration. Another example of an 'entry-controlled loop' is a while loop. 
 The block of code around which the <b>for</b> loop iterates is packed inside the curly braces. A <b>for</b> loop is also acceptable without curly braces. The compiler assumes only the 1st statement to be under the <b>imaginary curly braces</b>.
 A variable declared inside the curly braces of a <b>for</b> loop is only valid inside that particular for loop. We cannot use a variable declared inside a <b>for</b> loop outside it.
@@ -17,7 +17,7 @@ for ( init; condition; increment ) {
 }
 ```
 
-The `for` loop consists of 3 sections, the initialization section, a specific condition and the incremental or decremental operation section. These 3 sections control the `for` loop.
+The `for` loop consists of 3 sections, the initialization section(start value), a specific condition(stop value) and the incremental or decremental operation section(step value). These 3 sections control the `for` loop.
 
 The initialization statement is executed only once. Then, the test expression is evaluated. If the test expression is false (0), for loop is terminated. But if the test expression is true (nonzero), codes inside the body of for loop is executed and the update expression is updated. This process repeats until the test expression is false.
 
