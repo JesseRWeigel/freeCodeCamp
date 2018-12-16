@@ -26,10 +26,10 @@ We are using a browser implementation of the React Native library for this cours
 
 ```yml
 tests:
-  - text: The constant <code>JSX</code> should return an <code>h1</code> element.
+  - text: The constant <code>JSX</code> should return an <code>View</code> element.
     testString: assert(JSX.type === 'h1', 'The constant <code>JSX</code> should return an <code>h1</code> element.');
-  - text: The <code>h1</code> tag should include the text <code>Hello JSX!</code>
-    testString: assert(Enzyme.shallow(JSX).contains('Hello World'), 'The <code>h1</code> tag should include the text <code>Hello JSX!</code>');
+  - text: The <code>View</code> tag should include the text <code>Hello World</code>
+    testString: assert(Enzyme.shallow(JSX).contains('<Text>Hello World</Text>'), 'The <code>View</code> tag should include the text <code><Text>Hello World</Text></code>');
 
 ```
 
@@ -67,7 +67,7 @@ AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root
 
 
 ```js
-const JSX = <h1>Hello JSX!</h1>;
+const JSX = <h1><Text>Hello World</Text></h1>;
 ```
 
 </section>

@@ -1,5 +1,5 @@
 ---
-id: 887d824a67417b2b25124c56
+id: 687d824a67417b2b25124c56
 title: View and Text
 challengeType: 6
 isRequired: false
@@ -7,18 +7,25 @@ isRequired: false
 
 ## Description
 <section id='description'>
-<strong>Intro:</strong> React Native is a cross-platform JavaScript framework for building mobile applications that can run outside of the browser — most commonly iOS and Android apps.
-
-React Native, like React, uses a syntax extension of JavaScript called JSX that allows you to write HTML directly within JavaScript. This has several benefits. It lets you use the full programmatic power of JavaScript within HTML, and helps to keep your code readable. For the most part, JSX is similar to the HTML that you have already learned, however there are a few key differences. If you have not done the React challenges on freeCodeCamp.org, it is recommended that you do the first few there to get a feel for JSX before working on these React Native challenges.
-
-You will notice that the Syntax for React Native is almost identical to React's: The main difference being that React Native has doesn't use HTML style tags like <code><p></code> and <code><div></code>. Instead, for text and containers, it uses <code><Text></code> and <code><View></code> to render to native Android and iOS application views.
-
-We are using a browser implementation of the React Native library for this course. This allows us to mimic the functionality of React Native without any complicated setup.
+<section id='description'>
+In the last challenge, you used <code>View</code> and <code>Text</code> tags to display some basic hello world text. Let's learn a little more about what those tags do.
+If you are familiar with HTML, you might know that some tags are used as containers for page elements - for example, <code>div</code> and <code>span</code> - and other tags are used to hold text - for example, <code>p</code> and <code>h1</code>. Instead of regular HTML, React Native's JSX syntax uses <code>View</code> tags for container elements and <code>Text</code> tags for wrapping text.
+Some differences are that <code>View</code> tags render to native iOS and Android views and <code>Text</code> tags are used for all types of text including paragraphs and headers. Any size or styling differences in <code>Text</code> elements are done with styling.
+Note: for React Native to render properly, all text must be wrapped inside of a <code>Text</code> element and all <code>Text</code> elements must, in turn, be inside of <code>View</code> tags. Also, <code>View</code> tags cannot be inside of <code>Text</code> tags.
+Here are some examples:
+<b>Valid React Native JSX:</b>
+<blockquote>&lt;View&gt;<br>&nbsp;&nbsp;&lt;Text&gt;Paragraph One&lt;/Text&gt;<br>&nbsp;&nbsp;&lt;Text&gt;Paragraph Two&lt;/Text&gt;<br>&nbsp;&nbsp;&lt;Text&gt;Paragraph Three&lt;/Text&gt;<br>&lt;/View&gt;</blockquote>
+<b>Invalid - Text tags must be inside of View tags:</b>
+<blockquote>&lt;Text&gt;Paragraph One&lt;/Text&gt;<br></blockquote>
+<b>Invalid - Text can only be place inside of Text tags:</b>
+<blockquote>&lt;View&gt;Paragraph One&lt;/View&gt;<br></blockquote>
 </section>
 
 ## Instructions
 <section id='instructions'>
-<strong>Instructions:</strong> Let's start with a hello world example. Inside of the <code>View</code> tag, place a <code>Text</code> tag with the words 'Hello World' inside it.
+Define a new constant <code>JSX</code> that renders a <code>div</code> which contains the following elements in order:
+An <code>h1</code>, a <code>p</code>, and an unordered list that contains three <code>li</code> items. You can include any text you want within each element.
+<strong>Note:</strong>&nbsp;When rendering multiple elements like this, you can wrap them all in parentheses, but it's not strictly required. Also notice this challenge uses a <code>div</code> tag to wrap all the child elements within a single parent element. If you remove the <code>div</code>, the JSX will no longer transpile. Keep this in mind, since it will also apply when you return JSX elements in React components.
 </section>
 
 ## Tests
