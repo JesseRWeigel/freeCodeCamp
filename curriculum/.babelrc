@@ -1,6 +1,7 @@
 {
   "presets": ["env", "react", "stage-0"],
   "plugins": [
+    "react-native-web",
     "transform-runtime",
     "babel-plugin-add-module-exports",
     "lodash"

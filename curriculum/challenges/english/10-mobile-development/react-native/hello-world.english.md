@@ -26,8 +26,8 @@ We are using a browser implementation of the React Native library for this cours
 
 ```yml
 tests:
-  - text: The constant <code>JSX</code> should return an <code>View</code> element.
-    testString: assert(Enzyme.shallow(React.createElement(Example)).find('View'), 'The constant <code>JSX</code> should return an <code>View</code> element.');
+  - text: The component <code>Example</code> should render an <code>View</code> element.
+    testString: assert(Enzyme.shallow(React.createElement(Example)).find('View'), 'The component <code>Example</code> should render an <code>View</code> element.');
   - text: The <code>View</code> tag should include the text <code>Hello World</code>
     testString: assert(Enzyme.shallow(React.createElement(Example)).contains('Hello World'), 'The <code>View</code> tag should include the text <code><Text>Hello World</Text></code>');
 
@@ -41,9 +41,25 @@ tests:
 <div id='jsx-seed'>
 
 ```jsx
+import React from 'react';
+import { View, Text } from 'react-native';
 
-const JSX = <View></View>;
+class Example extends React.Component {
+  render() {
+    return null;
+  }
+}
+```
 
+</div>
+
+
+### Before Test
+<div id='jsx-setup'>
+
+```js
+window.View = window.ReactNative.View;
+window.Text = window.ReactNative.Text;
 ```
 
 </div>
@@ -54,9 +70,9 @@ const JSX = <View></View>;
 
 ```js
 
-//AppRegistry.registerComponent('JSX', () => Example);
+window.ReactNative.AppRegistry.registerComponent('JSX', () => Example);
 
-//AppRegistry.runApplication('JSX', { rootTag: document.getElementById('root')});
+window.ReactNative.AppRegistry.runApplication('JSX', { rootTag: document.getElementById('root')});
 ```
 
 </div>
@@ -68,8 +84,8 @@ const JSX = <View></View>;
 
 
 ```js
-import React from 'react';
-import { View, Text } from 'react-native';
+//import React from 'react';
+//import { View, Text } from 'react-native';
 
 class Example extends React.Component {
   render() {

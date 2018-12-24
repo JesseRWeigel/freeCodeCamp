@@ -485,10 +485,10 @@ async function evaluateReactReduxTest({ solution, files, test }) {
   // Provide dependencies, just provide all of them
   dom.window.React = require('react');
   dom.window.ReactDOM = require('react-dom');
-  // We need these if we mount the component with AppRegistry after the test...
-  // But we don't actually need those to run the automated tests.
-  //dom.window.ReactNative = require('react-native-web');
-  //dom.window.AppRegistry = dom.window.ReactNative.AppRegistry;
+  // Test setup and teardown currently copies RN components from this reference to window
+  // In the automated tests, we can actually use babel-plugin-react-native-web and imports
+  // to bring in RN stuff. Doesn't work in web interface, though.
+  dom.window.ReactNative = require('react-native-web');
   dom.window.PropTypes = require('prop-types');
   dom.window.Redux = require('redux');
   dom.window.ReduxThunk = require('redux-thunk');
