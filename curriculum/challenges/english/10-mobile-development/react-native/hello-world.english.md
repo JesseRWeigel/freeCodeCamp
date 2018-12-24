@@ -27,9 +27,9 @@ We are using a browser implementation of the React Native library for this cours
 ```yml
 tests:
   - text: The constant <code>JSX</code> should return an <code>View</code> element.
-    testString: assert(JSX.type === 'h1', 'The constant <code>JSX</code> should return an <code>h1</code> element.');
+    testString: assert(Enzyme.shallow(React.createElement(Example)).find('View'), 'The constant <code>JSX</code> should return an <code>View</code> element.');
   - text: The <code>View</code> tag should include the text <code>Hello World</code>
-    testString: assert(Enzyme.shallow(JSX).contains('<Text>Hello World</Text>'), 'The <code>View</code> tag should include the text <code><Text>Hello World</Text></code>');
+    testString: assert(Enzyme.shallow(React.createElement(Example)).contains('Hello World'), 'The <code>View</code> tag should include the text <code><Text>Hello World</Text></code>');
 
 ```
 
@@ -53,9 +53,10 @@ const JSX = <View></View>;
 <div id='jsx-teardown'>
 
 ```js
-AppRegistry.registerComponent('JSX', () => JSX);
 
-AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root')});
+//AppRegistry.registerComponent('JSX', () => Example);
+
+//AppRegistry.runApplication('JSX', { rootTag: document.getElementById('root')});
 ```
 
 </div>
@@ -67,7 +68,14 @@ AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root
 
 
 ```js
-const JSX = <h1><Text>Hello World</Text></h1>;
+import React from 'react';
+import { View, Text } from 'react-native';
+
+class Example extends React.Component {
+  render() {
+    return <View><Text>Hello World</Text></View>
+  }
+}
 ```
 
 </section>
