@@ -484,6 +484,11 @@ async function evaluateReactReduxTest({ solution, files, test }) {
   const Adapter16 = require('enzyme-adapter-react-16');
   dom.window.Enzyme.configure({ adapter: new Adapter16() });
 
+  dom.window.ReactNative = require('react-native-web');
+  dom.window.View = dom.window.ReactNative.View;
+  dom.window.Text = dom.window.ReactNative.Text;
+  dom.window.AppRegistry = dom.window.ReactNative.AppRegistry;
+
   dom.window.require = require;
   dom.window.code = code;
   dom.window.editor = {

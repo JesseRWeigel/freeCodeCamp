@@ -1,6 +1,6 @@
 ---
-id: 587d824a67417b2b25124c61
-title: Props
+id: 587d824a67417b2b25124c59
+title: Class Components
 challengeType: 6
 isRequired: false
 ---
@@ -26,12 +26,18 @@ We are using a browser implementation of the React Native library for this cours
 
 ```yml
 tests:
-  - text: The constant <code>JSX</code> should return an <code>h1</code> element.
-    testString: assert(JSX.type === 'h1', 'The constant <code>JSX</code> should return an <code>h1</code> element.');
-  - text: The <code>h1</code> tag should include the text <code>Hello JSX!</code>
-    testString: assert(Enzyme.shallow(JSX).contains('Hello World'), 'The <code>h1</code> tag should include the text <code>Hello JSX!</code>');
+  - text: The constant <code>JSX</code> should return a <code>View</code> element.
+    testString: assert(JSX.type === 'View', 'The constant <code>JSX</code> should return a <code>div</code> element.');
+  - text: The variable <code>JSX</code> contain a <code>View</code> element.
+    testString: assert(Enzyme.shallow(JSX).find('View').to.have.length(1);, '<code>JSX</code> should render an <code>View</code> element.');
+  - text: There should be a <code>Text</code> element nested inside of the <code>View</code> element.
+    testString: assert(Enzyme.shallow(JSX).find('Text').to.have.length(1);, '<code>View</code> should contain a <code>Text</code> element.');
+  - text: The <code>View</code> tag should include the text <code>Hello World</code>
+    testString: assert(Enzyme.shallow(JSX).contains('Hello World'), 'The <code>Text</code> tag should include the text <code>Hello World</code>');
 
 ```
+
+
 
 </section>
 
@@ -67,7 +73,7 @@ AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root
 
 
 ```js
-const JSX = <h1>Hello JSX!</h1>;
+const JSX = <View><Text>Hello World</Text></View>;
 ```
 
 </section>

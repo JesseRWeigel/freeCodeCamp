@@ -20,16 +20,60 @@
       "Hello World"
     ],
     [
-      "687d824a67417b2b25124c56",
+      "587d824a67417b2b25124c57",
       "View and Text"
     ],
     [
-      "787d824a67417b2b25124c56",
+      "587d824a67417b2b25124c58",
+      "Text Input Fields"
+    ],
+    [
+      "587d824a67417b2b25124c59",
+      "Class Components"
+    ],
+    [
+      "587d824a67417b2b25124c60",
+      "Component State"
+    ],
+    [
+      "587d824a67417b2b25124c61",
       "Props #1"
     ],
     [
-      "887d824a67417b2b25124c56",
+      "587d824a67417b2b25124c62",
       "Props #2"
+    ],
+    [
+      "587d824a67417b2b25124c63",
+      "JavaScript Styling"
+    ],
+    [
+      "587d824a67417b2b25124c64",
+      "Layouts with Flexbox"
+    ],
+    [
+      "587d824a67417b2b25124c65",
+      "Screen Dimensions"
+    ],
+    [
+      "587d824a67417b2b25124c66",
+      "Touchables"
+    ],
+    [
+      "587d824a67417b2b25124c67",
+      "Form Submission"
+    ],
+    [
+      "587d824a67417b2b25124c68",
+      "ScrollView"
+    ],
+    [
+      "587d824a67417b2b25124c69",
+      "FlatList"
+    ],
+    [
+      "587d824a67417b2b25124c70",
+      "SectionList"
     ]
   ],
   "helpRoom": "Help",
