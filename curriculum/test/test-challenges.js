@@ -70,12 +70,6 @@ const jQueryScript = fs.readFileSync(
       }, [])
   );
 
-  // TODO: remove this.
-  // Just have this in there so it only runs the RN Hello World tests.
-  allChallenges = allChallenges.filter(
-    c => c.id === '587d824a67417b2b25124c56'
-  );
-
   describe('Check challenges tests', async function() {
     before(async function() {
       this.timeout(30000);

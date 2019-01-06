@@ -58,6 +58,8 @@ class Example extends React.Component {
 <div id='jsx-setup'>
 
 ```js
+// This needs to include any RN components that are used to complete the lesson.
+// Imports don't work!
 window.View = window.ReactNative.View;
 window.Text = window.ReactNative.Text;
 ```
@@ -84,6 +86,9 @@ window.ReactNative.AppRegistry.runApplication('JSX', { rootTag: document.getElem
 
 
 ```js
+// Can't use imports when coding live. Keyword isn't recognized and throws errors.
+// To let students use imports, it'd be cool to use a babel plugin to ignore them.
+// For now, though, copy the needed components in jsx-setup and don't use imports in the solution.
 //import React from 'react';
 //import { View, Text } from 'react-native';
 
