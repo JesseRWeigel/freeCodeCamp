@@ -26,14 +26,10 @@ We are using a browser implementation of the React Native library for this cours
 
 ```yml
 tests:
-  - text: The constant <code>JSX</code> should return a <code>View</code> element.
-    testString: assert(JSX.type === 'View', 'The constant <code>JSX</code> should return a <code>div</code> element.');
-  - text: The variable <code>JSX</code> contain a <code>View</code> element.
-    testString: assert(Enzyme.shallow(JSX).find('View').to.have.length(1);, '<code>JSX</code> should render an <code>View</code> element.');
-  - text: There should be a <code>Text</code> element nested inside of the <code>View</code> element.
-    testString: assert(Enzyme.shallow(JSX).find('Text').to.have.length(1);, '<code>View</code> should contain a <code>Text</code> element.');
+  - text: The component <code>Example</code> should render an <code>View</code> element.
+    testString: assert(Enzyme.shallow(React.createElement(Example)).find('View'), 'The component <code>Example</code> should render an <code>View</code> element.');
   - text: The <code>View</code> tag should include the text <code>Hello World</code>
-    testString: assert(Enzyme.shallow(JSX).contains('Hello World'), 'The <code>Text</code> tag should include the text <code>Hello World</code>');
+    testString: assert(Enzyme.shallow(React.createElement(Example)).contains('Hello World'), 'The <code>View</code> tag should include the text <code><Text>Hello World</Text></code>');
 
 ```
 
@@ -47,9 +43,25 @@ tests:
 <div id='jsx-seed'>
 
 ```jsx
+import React from 'react';
+import { View, Text } from 'react-native';
 
-const JSX = <View></View>;
+class Example extends React.Component {
+  render() {
+    return null;
+  }
+}
+```
 
+</div>
+
+
+### Before Test
+<div id='jsx-setup'>
+
+```js
+window.View = window.ReactNative.View;
+window.Text = window.ReactNative.Text;
 ```
 
 </div>
@@ -59,9 +71,10 @@ const JSX = <View></View>;
 <div id='jsx-teardown'>
 
 ```js
-AppRegistry.registerComponent('JSX', () => JSX);
 
-AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root')});
+window.ReactNative.AppRegistry.registerComponent('JSX', () => Example);
+
+window.ReactNative.AppRegistry.runApplication('JSX', { rootTag: document.getElementById('root')});
 ```
 
 </div>
@@ -73,7 +86,11 @@ AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root
 
 
 ```js
-const JSX = <View><Text>Hello World</Text></View>;
+class Example extends React.Component {
+  render() {
+    return <View><Text>Hello World</Text></View>
+  }
+}
 ```
 
 </section>

@@ -46,7 +46,10 @@ let challengeTitles = new ChallengeTitles();
 const { JSDOM } = jsdom;
 
 const babelOptions = {
-  plugins: ['transform-runtime'],
+  plugins: [
+    [require('babel-plugin-react-native-web'), { commonjs: true }],
+    'transform-runtime'
+  ],
   presets: [presetEnv, presetReact]
 };
 
@@ -56,7 +59,7 @@ const jQueryScript = fs.readFileSync(
 );
 
 (async function() {
-  const allChallenges = await getChallengesForLang(lang).then(curriculum =>
+  let allChallenges = await getChallengesForLang(lang).then(curriculum =>
     Object.keys(curriculum)
       .map(key => curriculum[key].blocks)
       .reduce((challengeArray, superBlock) => {
@@ -65,6 +68,12 @@ const jQueryScript = fs.readFileSync(
         );
         return [...challengeArray, ...flatten(challengesForBlock)];
       }, [])
+  );
+
+  // TODO: remove this.
+  // Just have this in there so it only runs the RN Hello World tests.
+  allChallenges = allChallenges.filter(
+    c => c.id === '587d824a67417b2b25124c56'
   );
 
   describe('Check challenges tests', async function() {
@@ -476,6 +485,10 @@ async function evaluateReactReduxTest({ solution, files, test }) {
   // Provide dependencies, just provide all of them
   dom.window.React = require('react');
   dom.window.ReactDOM = require('react-dom');
+  // Test setup and teardown currently copies RN components from this reference to window
+  // In the automated tests, we can actually use babel-plugin-react-native-web and imports
+  // to bring in RN stuff. Doesn't work in web interface, though.
+  dom.window.ReactNative = require('react-native-web');
   dom.window.PropTypes = require('prop-types');
   dom.window.Redux = require('redux');
   dom.window.ReduxThunk = require('redux-thunk');
