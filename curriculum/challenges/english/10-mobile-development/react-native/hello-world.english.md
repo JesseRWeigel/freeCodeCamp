@@ -43,6 +43,9 @@ tests:
 <div id='jsx-seed'>
 
 ```jsx
+import React from 'react';
+import { View, Text } from 'react-native';
+
 class Example extends React.Component {
   render() {
     return null;
@@ -83,6 +86,9 @@ window.ReactNative.AppRegistry.runApplication('JSX', { rootTag: document.getElem
 
 
 ```js
+import React from 'react';
+import { View, Text } from 'react-native';
+
 class Example extends React.Component {
   render() {
     return <View><Text>Hello World</Text></View>

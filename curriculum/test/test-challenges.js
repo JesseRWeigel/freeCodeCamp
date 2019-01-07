@@ -48,7 +48,6 @@ const { JSDOM } = jsdom;
 const babelOptions = {
   plugins: [
     [require('babel-plugin-react-native-web'), { commonjs: true }],
-    require('babel-plugin-transform-remove-import'),
     'transform-runtime'
   ],
   presets: [presetEnv, presetReact]
@@ -60,7 +59,7 @@ const jQueryScript = fs.readFileSync(
 );
 
 (async function() {
-  let allChallenges = await getChallengesForLang(lang).then(curriculum =>
+  const allChallenges = await getChallengesForLang(lang).then(curriculum =>
     Object.keys(curriculum)
       .map(key => curriculum[key].blocks)
       .reduce((challengeArray, superBlock) => {
@@ -69,12 +68,6 @@ const jQueryScript = fs.readFileSync(
         );
         return [...challengeArray, ...flatten(challengesForBlock)];
       }, [])
-  );
-
-  // TODO: remove this.
-  // Just have this in there so it only runs the RN Hello World tests.
-  allChallenges = allChallenges.filter(
-    c => c.id === '587d824a67417b2b25124c56'
   );
 
   describe('Check challenges tests', async function() {
