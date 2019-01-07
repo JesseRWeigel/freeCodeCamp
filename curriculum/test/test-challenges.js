@@ -48,6 +48,7 @@ const { JSDOM } = jsdom;
 const babelOptions = {
   plugins: [
     [require('babel-plugin-react-native-web'), { commonjs: true }],
+    require('babel-plugin-transform-remove-import'),
     'transform-runtime'
   ],
   presets: [presetEnv, presetReact]

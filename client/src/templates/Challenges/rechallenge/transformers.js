@@ -22,7 +22,10 @@ const protectTimeout = 100;
 Babel.registerPlugin('loopProtection', protect(protectTimeout));
 
 const babelOptionsJSX = {
-  plugins: ['loopProtection'],
+  plugins: [
+    'loopProtection', 
+    require('babel-plugin-transform-remove-import')
+  ],
   presets: [presetEnv, presetReact]
 };
 
