@@ -7,18 +7,37 @@ isRequired: false
 
 ## Description
 <section id='description'>
-<strong>Intro:</strong> React Native is a cross-platform JavaScript framework for building mobile applications that can run outside of the browser — most commonly iOS and Android apps.
+<strong>Intro:</strong> In React Native you can use ES6 class syntax to define components. The classes you create will always extend the <code>Component</code> class from React.
 
-React Native, like React, uses a syntax extension of JavaScript called JSX that allows you to write HTML directly within JavaScript. This has several benefits. It lets you use the full programmatic power of JavaScript within HTML, and helps to keep your code readable. For the most part, JSX is similar to the HTML that you have already learned, however there are a few key differences. If you have not done the React challenges on freeCodeCamp.org, it is recommended that you do the first few there to get a feel for JSX before working on these React Native challenges.
+```js
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
 
-You will notice that the Syntax for React Native is almost identical to React's: The main difference being that React Native has doesn't use HTML style tags like <code><p></code> and <code><div></code>. Instead, for text and containers, it uses <code><Text></code> and <code><View></code> to render to native Android and iOS application views.
+class MyComponent extends Component {
+  myCustomFunction() {
+    return "Hello World"
+  }
 
-We are using a browser implementation of the React Native library for this course. This allows us to mimic the functionality of React Native without any complicated setup.
+  render() {
+    return (
+      <View>
+        <Text>{ this.myCustomFunction.bind(this) }</Text>
+      </View>
+    )
+  }
+}
+```
+
+The only required method inside of a class is <code>render</code>, although you can define as many methods as you want (like the <code>myCustomFunction</code> one above).
+
+<b>Note:</b> the <code>.bind(this)</code> syntax is required for things to run properly in React. We will explore alternatives to this later on. 
+
 </section>
 
 ## Instructions
 <section id='instructions'>
-<strong>Instructions:</strong> Let's start with a hello world example. Inside of the <code>View</code> tag, place a <code>Text</code> tag with the words 'Hello World' inside it.
+<strong>Instructions:</strong> Create another method inside of the <code>MyComponent</code> class named <code>returnGreeting</code>. Have that function return the word 'Hello World', just like the above example. Then call the <code>returnGreeting</code> function from inside of <code>View</code> and <code>Text</code> tags in the <code>render</code> function.
+
 </section>
 
 ## Tests
@@ -36,8 +55,6 @@ tests:
     testString: assert(Enzyme.shallow(JSX).contains('Hello World'), 'The <code>Text</code> tag should include the text <code>Hello World</code>');
 
 ```
-
-
 
 </section>
 
