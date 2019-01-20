@@ -1,6 +1,6 @@
 ---
-id: 587d824a67417b2b25124c59
-title: Class Components
+id: 587d824a67417b2b25124d60
+title: Class Constructor
 challengeType: 6
 isRequired: false
 ---
@@ -14,6 +14,10 @@ import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
 class MyComponent extends Component {
+  constructor() {
+    super();
+  }
+
   myCustomFunction() {
     return "Hello World"
   }
@@ -28,16 +32,15 @@ class MyComponent extends Component {
 }
 ```
 
-The only required method inside of a class is <code>render</code>, although you can define as many methods as you want (like the <code>myCustomFunction</code> one above). The <code>render</code> method is where you return your mobile views from.
-
-<b>Note:</b> the <code>.bind(this)</code> syntax is required for things to run properly in React. We will explore alternatives to this later on. 
+The only required method inside of a class is <code>render</code>, although you can define as many methods as you want (like the <code>myCustomFunction</code> one above).
 
 </section>
 
 ## Instructions
 <section id='instructions'>
-<strong>Instructions:</strong> Create another method inside of the <code>MyComponent</code> class named <code>returnGreeting</code>. Have that function return the word 'Hello World', just like the above example. Then call the <code>returnGreeting</code> function from inside of <code>View</code> and <code>Text</code> tags in the <code>render</code> function.
+<strong>Instructions:</strong> Create another method inside of the <code>MyComponent</code> class named 
 
+Let's start with a hello world example. Inside of the <code>View</code> tag, place a <code>Text</code> tag with the words 'Hello World' inside it.
 </section>
 
 ## Tests
@@ -55,6 +58,8 @@ tests:
     testString: assert(Enzyme.shallow(JSX).contains('Hello World'), 'The <code>Text</code> tag should include the text <code>Hello World</code>');
 
 ```
+
+
 
 </section>
 
