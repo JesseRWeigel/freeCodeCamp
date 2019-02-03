@@ -24,8 +24,7 @@ Here are some examples:
 ## Instructions
 <section id='instructions'>
 Define a new constant <code>JSX</code> that renders a <code>div</code> which contains the following elements in order:
-An <code>h1</code>, a <code>p</code>, and an unordered list that contains three <code>li</code> items. You can include any text you want within each element.
-<strong>Note:</strong>&nbsp;When rendering multiple elements like this, you can wrap them all in parentheses, but it's not strictly required. Also notice this challenge uses a <code>div</code> tag to wrap all the child elements within a single parent element. If you remove the <code>div</code>, the JSX will no longer transpile. Keep this in mind, since it will also apply when you return JSX elements in React components.
+An <code>View</code>, and an unordered list that contains three <code>Text</code> items. You can include any text you want within each element.
 </section>
 
 ## Tests
@@ -33,10 +32,10 @@ An <code>h1</code>, a <code>p</code>, and an unordered list that contains three 
 
 ```yml
 tests:
-  - text: The constant <code>JSX</code> should return an <code>h1</code> element.
-    testString: assert(JSX.type === 'h1', 'The constant <code>JSX</code> should return an <code>h1</code> element.');
-  - text: The <code>h1</code> tag should include the text <code>Hello JSX!</code>
-    testString: assert(Enzyme.shallow(JSX).contains('Hello World'), 'The <code>h1</code> tag should include the text <code>Hello JSX!</code>');
+  - text: The component <code>Example</code> should render an <code>View</code> element.
+    testString: assert(Enzyme.shallow(React.createElement(Example)).find('View'), 'The component <code>Example</code> should render an <code>View</code> element.');
+  - text: The <code>View</code> tag should include three <code>Text</code> elements.
+    testString: assert(Enzyme.shallow(React.createElement(Example)).find('Text').length === 3, 'The <code>View</code> tag should include three <code>Text</code> elements.');
 
 ```
 
@@ -48,9 +47,23 @@ tests:
 <div id='jsx-seed'>
 
 ```jsx
+import React from 'react';
+import { View, Text } from 'react-native';
 
-const JSX = <View></View>;
+const JSX = (
+  <View>
+  </View>
+);
+```
 
+</div>
+
+### Before Test
+<div id='jsx-setup'>
+
+```js
+window.View = window.ReactNative.View;
+window.Text = window.ReactNative.Text;
 ```
 
 </div>
@@ -60,9 +73,16 @@ const JSX = <View></View>;
 <div id='jsx-teardown'>
 
 ```js
-AppRegistry.registerComponent('JSX', () => JSX);
 
-AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root')});
+class Example extends React.Component {
+  render() {
+    return JSX;
+  }
+}
+
+window.ReactNative.AppRegistry.registerComponent('JSX', () => Example);
+
+window.ReactNative.AppRegistry.runApplication('JSX', { rootTag: document.getElementById('root')});
 ```
 
 </div>
@@ -74,7 +94,14 @@ AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root
 
 
 ```js
-const JSX = <h1>Hello JSX!</h1>;
+import React from 'react';
+import { View, Text } from 'react-native';
+
+const JSX = (
+  <View>
+    <Text>Hello World</Text>
+  </View>
+);
 ```
 
 </section>

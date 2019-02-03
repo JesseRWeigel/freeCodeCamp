@@ -3,7 +3,7 @@
   "dashedName": "react-native",
   "order": 0,
   "time": "? hours",
-  "template": "<body><link rel='stylesheet' href='/css/smartphone.css'><div class='smartphone'><div id='root' class='content'></div></div><div id='challenge-node'></div>${ source || '' }</body>",
+  "template": "<body><link rel='stylesheet' href='/css/smartphone.css'><div class='smartphone'><div class='content'><div class='statusBar'>12:45</div><div class='app'><div id='root'></div></div></div></div><div id='challenge-node'></div>${ source || '' }</body>",
   "required": [
     {
       "src": "https://unpkg.com/react@16.4.0/umd/react.production.min.js"

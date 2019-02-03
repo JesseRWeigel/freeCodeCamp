@@ -46,11 +46,10 @@ tests:
 import React from 'react';
 import { View, Text } from 'react-native';
 
-class Example extends React.Component {
-  render() {
-    return null;
-  }
-}
+const JSX = (
+  <View>
+  </View>
+);
 ```
 
 </div>
@@ -72,6 +71,12 @@ window.Text = window.ReactNative.Text;
 
 ```js
 
+class Example extends React.Component {
+  render() {
+    return JSX;
+  }
+}
+
 window.ReactNative.AppRegistry.registerComponent('JSX', () => Example);
 
 window.ReactNative.AppRegistry.runApplication('JSX', { rootTag: document.getElementById('root')});
@@ -89,11 +94,10 @@ window.ReactNative.AppRegistry.runApplication('JSX', { rootTag: document.getElem
 import React from 'react';
 import { View, Text } from 'react-native';
 
-class Example extends React.Component {
-  render() {
-    return <View><Text>Hello World</Text></View>
-  }
-}
+const JSX = (
+  <View>
+  </View>
+);
 ```
 
 </section>
