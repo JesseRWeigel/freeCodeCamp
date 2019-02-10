@@ -7,18 +7,65 @@ isRequired: false
 
 ## Description
 <section id='description'>
-<strong>Intro:</strong> React Native is a cross-platform JavaScript framework for building mobile applications that can run outside of the browser — most commonly iOS and Android apps.
+<strong>Intro:</strong> 
+TODO: style borders for inputs and more intracate details on styling inputs and buttons
 
-React Native, like React, uses a syntax extension of JavaScript called JSX that allows you to write HTML directly within JavaScript. This has several benefits. It lets you use the full programmatic power of JavaScript within HTML, and helps to keep your code readable. For the most part, JSX is similar to the HTML that you have already learned, however there are a few key differences. If you have not done the React challenges on freeCodeCamp.org, it is recommended that you do the first few there to get a feel for JSX before working on these React Native challenges.
 
-You will notice that the Syntax for React Native is almost identical to React's: The main difference being that React Native has doesn't use HTML style tags like <code><p></code> and <code><div></code>. Instead, for text and containers, it uses <code><Text></code> and <code><View></code> to render to native Android and iOS application views.
 
-We are using a browser implementation of the React Native library for this course. This allows us to mimic the functionality of React Native without any complicated setup.
+React Native uses JavaScript syntax that is borrowed from CSS for styling components. In React.js for the web, you have the option to use CSS or JS styling; in React Native JS styling is the only option.
+
+How does it work?
+
+Any font styles are applied to the <code>Text</code> tag directly with a style attribute.
+
+```jsx
+<Text style={{ fontSize: 24 }}>
+```
+
+<b>Note:</b> All of the sizes here (like <code>height</code> and <code>fontSize</code>) are in density independent pixels, which don't have a label like <code>px</code>. React Native uses this system so they will render proportional to any device size.
+
+Likewise, container styles can be applied to <code>View</code> tags.
+
+```jsx
+<View style={{ height: 200 }}>
+```
+
+Images, as we saw in the last lesson, also can use style definitions.
+
+```jsx
+<Image style={{ width: 100, height: 100 }}>
+```
+
+You can also pass an object to the style attribute using the recommended <code>StyleSheet</code> function from React Native.
+
+```jsx
+const styles = StyleSheet.create({
+  container: {
+    height: 200
+  },
+  headerText: {
+    fontSize: 24
+  },
+  image: {
+    width: 100,
+    height: 100
+  }
+});
+<View style={styles.container}>
+  <Text style={styles.headerText}>
+  <Image style={styles.image}>
+</View>
+```
+
+One thing to note is that styles only affect the tag that you attach them to. In other words, if you have tags nested in tags, you still have to apply the styles to every one.
+
+<a href="https://facebook.github.io/react-native/docs/style.html" alt="React Native Styling Documentation" target="_blank">Here is more information about React Native styling.</a>
+
 </section>
 
 ## Instructions
 <section id='instructions'>
-<strong>Instructions:</strong> Let's start with a hello world example. Inside of the <code>View</code> tag, place a <code>Text</code> tag with the words 'Hello World' inside it.
+<strong>Instructions:</strong> Create a style object variable called <code>styles</code> using <code>StyleSheet.create</code> and add the keys, <code>headerText</code> and <code>container</code>. Give the container a height of 200 and the headerText a fontWeight of 700. Now attach the styles to the tags using the <code>style</code> attribute on each tag.
 </section>
 
 ## Tests
@@ -37,8 +84,6 @@ tests:
 
 ```
 
-
-
 </section>
 
 ## Challenge Seed
@@ -47,9 +92,23 @@ tests:
 <div id='jsx-seed'>
 
 ```jsx
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-const JSX = <View></View>;
+const styles = StyleSheet.create({
+  container: {
+    height: 200
+  },
+  headerText: {
+    fontWeight: 700
+  }
+});
 
+const JSX = (
+  <View style={styles.container}>
+    <Text style={styles.headerText}>Welcome to my app</Text>
+  </View>
+);
 ```
 
 </div>
@@ -73,7 +132,14 @@ AppRegistry.runApplication('JSX', { rootTag: document.getElementById('react-root
 
 
 ```js
-const JSX = <View><Text>Hello World</Text></View>;
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
+const JSX = (
+  <View>
+    <Text>Welcome to my app</Text>
+  </View>
+);
 ```
 
 </section>

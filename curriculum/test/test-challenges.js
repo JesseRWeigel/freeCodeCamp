@@ -482,7 +482,7 @@ async function evaluateReactReduxTest({ solution, files, test }) {
   // Test setup and teardown currently copies RN components from this reference to window
   // In the automated tests, we can actually use babel-plugin-react-native-web and imports
   // to bring in RN stuff. Doesn't work in web interface, though.
-  dom.window.ReactNative = require('react-native-web');
+  // dom.window.ReactNative = require('react-native-web');
   dom.window.PropTypes = require('prop-types');
   dom.window.Redux = require('redux');
   dom.window.ReduxThunk = require('redux-thunk');
